@@ -651,6 +651,7 @@ set value(value){
     }
 
     // dispatch events for the parent component
+    // modified event dispatcher with selected values so you know when you erased an option on Multipicklist options
     dispatchChangeEvent(data, dataObj) {
         if (this._connected) {
             const dataValue = data;
@@ -661,7 +662,8 @@ set value(value){
                     bubbles: true,
                     detail: {
                         value: dataValue,
-                        valueObj: dataValueObj
+                        valueObj: dataValueObj,
+                        selectedValues : this.comboboxObj._selectedValues
                     }
                 })
             );
